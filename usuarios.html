@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorvetudos — Usuários</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="src/css/usuarios.css" />
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="./src/css/skeleton-loading.css">
+
+    <!-- main.js controla tudo — sem script inline -->
+    <script src="src/js/usuarios/main.js" defer type="module"></script>
+    <script src="src/js/aside.js" defer></script>
+</head>
+<body>
+
+  <aside class="aside">
+    <div class="sidebar-titulo">
+      <img class="logo-sorvetudos" src="./src/img/Sorvetudos.png" alt="">
+      Sorvetudos
+    </div>
+    <ul class="sidebar-nave">
+      <li><a href="dashboard.html"><i class="nave-icone"><img class="logo-dashboard" src="./src/img/Dashboard.png" alt=""></i> Dashboard</a></li>
+      <li><a href="usuarios.html"><i class="nave-icone"><img class="logo-usuarios" src="./src/img/Usuarios.png" alt=""></i> Usuários</a></li>
+      <li><a href="cadastro-produto.html"><i class="nave-icone"><img class="logo-novo-produto" src="./src/img/Novo Produto.png" alt=""></i> Novo Produto</a></li>
+    </ul>
+    <div class="sidebar-space"></div>
+    <div class="sidebar-exit">
+      <a href="index.html">
+        <i class="nave-icone"><img class="logo-sair" src="./src/img/Sair.png" alt=""></i>
+        Sair
+      </a>
+    </div>
+  </aside>
+
+  <main class="main" id="main-content">
+
+    <header class="page-header">
+      <h1 class="page-title">Usuários</h1>
+    </header>
+
+    <section class="users-section">
+
+      <button class="btn-insert" id="btn-abrir-inserir">+ Inserir novo Usuário</button>
+
+      <div class="table-wrapper">
+        <table class="users-table" id="users-table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Nivel de Acesso</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody id="users-tbody">
+            <tr>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row skeleton-btn"></div></td>
+            </tr>
+            <tr>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row skeleton-btn"></div></td>
+            </tr>
+            <tr>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row skeleton-btn"></div></td>
+            </tr>
+            <tr>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row"></div></td>
+              <td><div class="skeleton skeleton-row skeleton-btn"></div></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <p>Nenhum Usuário encontrado.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Insert Modal -->
+  <div class="modal-overlay" id="modal-inserir">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="fechar-inserir" aria-label="Fechar">✕</button>
+      <h2 class="modal-titulo">Inserir Novo Usuário</h2>
+      <div class="modal-campo">
+        <label for="inserir-nome">Nome</label>
+        <input type="text" id="inserir-nome" placeholder="Ex: admin2" />
+      </div>
+      <div class="modal-campo">
+        <label for="inserir-email">Email</label>
+        <input type="email" id="inserir-email" placeholder="Ex: admin@gmail.com" />
+      </div>
+      <div class="modal-campo">
+        <label for="inserir-senha">Senha</label>
+        <input type="password" id="inserir-senha" placeholder="••••••••••••" />
+      </div>
+      <div class="modal-campo">
+        <label for="inserir-nivel">Nível de Acesso</label>
+        <input type="text" id="inserir-nivel" placeholder="Ex: 1" />
+      </div>
+      <div class="modal-rodape">
+        <button class="btn-modal btn-modal-inserir" id="btn-confirmar-inserir">Inserir Usuário</button>
+        <button class="btn-modal btn-modal-voltar"  id="btn-cancelar-inserir">voltar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editar Modal -->
+  <div class="modal-overlay" id="modal-editar">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="fechar-editar" aria-label="Fechar">✕</button>
+      <h2 class="modal-titulo" id="editar-titulo">Editar usuário</h2>
+      <div class="modal-campo">
+        <label for="editar-nome">Nome</label>
+        <input type="text" id="editar-nome" />
+      </div>
+      <div class="modal-campo">
+        <label for="editar-email">Email</label>
+        <input type="email" id="editar-email" placeholder="Ex: admin@gmail.com" />
+      </div>
+      <div class="modal-campo">
+        <label for="editar-senha">Senha</label>
+        <input type="password" id="editar-senha" placeholder="••••••••••••" />
+      </div>
+      <div class="modal-campo">
+        <label for="editar-nivel">Nível de Acesso</label>
+        <input type="text" id="editar-nivel" />
+      </div>
+      <div class="modal-rodape">
+        <button class="btn-modal btn-modal-confirmar" id="btn-confirmar-editar">Confirmar Alteração</button>
+        <button class="btn-modal btn-modal-voltar"    id="btn-cancelar-editar">voltar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Remover Modal -->
+  <div class="modal-overlay" id="modal-remover">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="fechar-remover" aria-label="Fechar">✕</button>
+      <h2 class="modal-titulo">Remover Usuário</h2>
+      <p class="modal-mensagem" id="remover-mensagem">Deseja remover o usuário?</p>
+      <div class="modal-rodape">
+        <button class="btn-modal btn-modal-confirmar" id="btn-confirmar-remover">remover</button>
+        <button class="btn-modal btn-modal-voltar"    id="btn-cancelar-remover">voltar</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
