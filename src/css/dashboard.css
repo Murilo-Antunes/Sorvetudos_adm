@@ -203,6 +203,15 @@ body {
   font-size: 0.875rem;
 }
 
+.btn-loading {
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
 .status-badge.ativo    { color: var(--color-ativado); }
 .status-badge.inativo  { color: var(--color-desativado);}
 
