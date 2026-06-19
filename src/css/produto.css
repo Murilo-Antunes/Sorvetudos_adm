@@ -440,7 +440,6 @@ body {
   letter-spacing: 1px;
   text-transform: lowercase;
   cursor: pointer;
-  min-width: 100px;
 }
 
 .btn-modal-deletar  { background: #8B1A1A; color: #fff; }
